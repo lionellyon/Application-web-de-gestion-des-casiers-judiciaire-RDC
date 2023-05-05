@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contacts</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/style/style-log.css">
+  <link rel="icon" href="/blacklogo.png" type="image/icon type">
+  <script src="script.js"></script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/api/criminal-record/"><img src="/logoblk.png" width="60px"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="/api/criminal-record/casier/"> Acceuil </a></li>
+          <li><a href="about"> A propos </a></li>
+          <li><a href="contact"> Numéro d'urgence </a></li>
+<!-- MODAL LOGIN BUTTONS -->
+            <li>
+              <button class="btn" id="loginbtn" data-toggle="modal" data-target="#popUpWindow">
+                <span class="glyphicon glyphicon-log-in" ></span>
+                Log In
+              </button>
+              </li>
+            <li>
+              <button class="btn" id="btnLogout" style="display: none;" onclick="logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Log Out
+              </button>
+            </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- MODAL LOGIN -->
+<div class="container">
+  <div class="modal fade" id="popUpWindow">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="login_div">
+        <!-- header -->
+        <div class="modal-header">
+          <h3 class="modal-title">Login</h3>
+        </div>
+        <!-- body -->
+        <div class="modal-header">
+          <form role="form">
+            <div class="form-group">
+              <input type="email" id= "txtEmail" class="form-control" placeholder="Email"/>
+              <br>
+              <input type="password" id="txtPassword" class="form-control" placeholder="Password" />
+              <br>
+              <input type="button" onclick="myFunction()" onmouseover="myFunction()" onmouseout="myFunction()" value="Show Password">
+            </div>
+          </form>
+        </div>
+        <!-- footer -->
+        <div class="modal-footer">
+          <button class="btn btn-block" id="btnLogin" onclick="login()">Log In</button>
+        </div>
+        </div>
+      <!-- success -->
+      <div id="user_div" class="modal-success" style="display: none;">
+        <h3 class="modal-title" style="text-align: center;">Logged In Successfully !!</h3>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL LOGIN ENDS -->
+
+<!--Table-->
+<style>
+  #myInput {
+  background-image: url(search.png);
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+  #myTable {
+  border-collapse: collapse;
+}
+</style>
+
+
+
+
+
+<div style="padding: 5%;">
+    <h2 style="text-align: center;"> <b>Emergency Numbers</b></h2>
+    <br>
+    <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for names.." title="Type in a name">
+    <table id="myTable">
+      <tr style="background-color: #f5f5f5;">
+        <th>National Emergency Number</th>
+        <th><a class="link" href="tel:112">
+            112
+        </a></th>
+      </tr>
+      <tr style="background-color: #f5f5f5;">
+        <th>Police</th>
+        <th><a class="link" href="tel:100">
+            100
+        </a></th>
+      </tr>
+      <tr style="background-color: #f5f5f5;">
+        <th>Fire</th>
+        <th><a class="link" href="tel:101">
+            101
+        </a></th>
+      </tr>
+      <tr style="background-color: #f5f5f5;">
+        <th>Ambulance</th>
+        <th><a class="link" href="tel:102">
+            102
+        </a></th>
+      </tr>
+      <tr>
+        <th>Disaster Management Services</th>
+        <th><a class="link" href="tel:108">
+            108
+        </a></th>
+      </tr>
+      <tr>
+        <th>Women Helpline</th>
+        <th><a class="link" href="tel:1091">
+            1091
+        </a></th>
+      </tr>
+      <tr>
+        <th>Women Helpline - ( Domestic Abuse )</th>
+        <th><a class="link" href="tel:181">
+            181
+        </a></th>
+      </tr>
+      <tr>
+        <th>Air Ambulance</th>
+        <th><a class="link" href="tel:9540161344 ">
+            9540161344
+        </a></th>
+      </tr>
+      <tr>
+        <th>Aids Helpline</th>
+        <th><a class="link" href="tel:1097">
+            1097
+        </a></th>
+      </tr>
+      <tr>
+        <th>Disaster Management ( N.D.M.A )</th>
+        <th>
+            <a class="link" href="tel:1078">
+            1078
+            </a>
+            <br>
+            <a class="link" href="tel:011-26701728 ">
+                011-26701728
+            </a>
+        </th>
+      </tr>
+      <tr>
+        <th>Railway Enquiry</th>
+        <th><a class="link" href="tel:139">
+            139
+        </a></th>
+      </tr>
+      <tr>
+        <th>Railway Accident Emergency Service</th>
+        <th><a class="link" href="tel:1072">
+            1072
+        </a></th>
+      </tr>
+      <tr>
+        <th>Road Accident Emergency Service</th>
+        <th><a class="link" href="tel:1073">
+            1073
+        </a></th>
+      </tr>
+      <tr>
+        <th>Relief Commissioner For Natural Calamities</th>
+        <th><a class="link" href="tel:1070">
+            1070
+        </a></th>
+      </tr>
+      <tr>
+        <th>Children In Difficult Situations</th>
+        <th><a class="link" href="tel:1098">
+            1098
+        </a></th>
+      </tr>
+      <tr>
+        <th>Tourist Helpline</th>
+        <th>
+            <a class="link" href="tel:1363">
+                1363
+            </a>
+            <br>
+            <a class="link" href="tel:1800111363 ">
+                1800111363
+            </a>
+        </th>
+      </tr>
+      <tr>
+          <th>LPG Leak Helpline</th>
+          <th>
+            <a class="link" href="tel:1906">
+                1906
+            </a>
+          </th>
+      </tr>
+</table>
+</div>
+<div style="text-align: center;">
+<a href="/emergency%20numbers.pdf" target="_blank" download="numbers_poster">
+    <button style="width: 25%; height:auto"> DOWNLOAD FREE HELPLINE POSTER </button>
+</a>
+</div>
+
+
+<div style="padding: 5%;">
+<h2 style="text-align: center;"><b>Official Details</b></h2>
+<br>
+<table>
+  <tr style="background-color: #f5f5f5;">
+    <th>Name</th>
+    <th>Designation</th>
+    <th>E-Mail Id</th>
+  </tr>
+  <tr>
+    <td>Shri Ram Phal Pawar, IPS</td>
+    <td>Director</td>
+
+    <td>
+        <a class="link" href="mailto: director@ncrb.nic.in">
+            director@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Shri Vivek Gogia, IPS</td>
+    <td>Jt. Director (A&T)</td>
+
+    <td>
+        <a class="link" href="jdadmin@ncrb.nic.in">
+            jdadmin@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Shri Sanjay Mathur, IPS</td>
+    <td>Jt. Director (CCTNS)</td>
+
+    <td>
+        <a class="link" href="mailto: dcctns@ncrb.nic.in">
+            dcctns@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Shri Sanjeev Kumar</td>
+    <td>Chief Statistician</td>
+
+    <td>
+        <a class="link" href="mailto: csncrb@ncrb.nic.in">
+            csncrb@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Shri A. Mohan Krishna</td>
+    <td>Dy. Director (CCTNS-III / CFPB)</td>
+
+    <td>
+        <a class="link" href="mailto: director@ncrb.nic.in">
+            amkrishna@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Dr. Prashun Gupta</td>
+    <td>Dy. Director (CCTNS-II)</td>
+
+    <td>
+        <a class="link" href="mailto: prashun@ncrb.nic.in">
+            prashun@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Shri S. K. Saxena</td>
+    <td>Dy. Director (CCTNS-I / DCT)</td>
+
+    <td>
+        <a class="link" href="mailto: sksaxena@ncrb.nic.in">
+            sksaxena@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Shri Vijay Singh</td>
+    <td>Dy. Director (Admn.)</td>
+
+    <td>
+        <a class="link" href="mailto: ddadmn@ncrb.nic.in">
+            ddadmn@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Shri Dhirendra Kumar Yadav</td>
+    <td>Dy. Director (IT Security)</td>
+
+    <td>
+        <a class="link" href="mailto: dkyadav@ncrb.nic.in">
+            dkyadav@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+  <tr>
+    <td>Shri Pradip De, IPS</td>
+    <td>Asstt. Director (Training)</td>
+
+    <td>
+        <a class="link" href="mailto: pradipde@ncrb.nic.in">
+            pradipde@ncrb.nic.in
+        </a>
+    </td>
+  </tr>
+</table>
+</div>
+
+
+
+
+
+
+
+<!-- Footer -->
+<div class="footer">
+  <div class="f1">
+    <p class="linkfooter">
+      <img src="/logoblk.png" width="80px">
+      <br>
+      <br>
+      <a class="footerlink" href="/api/criminal-record/casier/"> Acceuil </a>
+      <br>
+      <a class="footerlink" href="about"> A propos </a>
+      <br>
+      <a class="footerlink" href="contact"> Numéro d’urgence  </a>
+    </p>
+  </div>
+  <div class="f2">
+    <p>
+      Project By:
+      <br>
+      Lionel Kiangebeni
+      <br>
+      Troisième licence (Bac +3)
+      <br>
+      Science Informatique
+      <br>
+      Réseau et télécomunication
+      <br>
+    </p>
+  </div>
+  <br><br><br><br><br><br><br>
+  <hr color="red">
+        <span class="fl">
+            &copy; Lionel Kiangebeni, 2022, Version 1.1 (This website is for representation purpose only)
+        </span>
+</div>
+<!-- End of Footer -->
+
+
+<!-- JS for LoginAuth -->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+</body>
+</html>

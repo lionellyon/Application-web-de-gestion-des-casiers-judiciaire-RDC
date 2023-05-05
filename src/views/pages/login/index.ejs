@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Casier Judiciaire</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/style/style-log.css">
+        <link rel="icon" href="/blacklogo.png" type="image/icon type">
+        <script src="script.js"></script>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/api/criminal-record/"><img src="/logoblk.png" width="60px"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="about"> A propos </a></li>
+        <li><a href="contact"> Numéro d'urgence </a></li>
+<!-- MODAL LOGIN BUTTONS -->
+            <li>
+              <button class="btn" id="loginbtn" data-toggle="modal" data-target="#popUpWindow">
+
+                <span class="glyphicon glyphicon-log-in" ></span>
+                Se connecter
+              </button>
+              </li>
+            <li>
+              <button class="btn" id="btnLogout" style="display: none;" onclick="logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Se deconnecter
+              </button>
+            </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- MODAL LOGIN -->
+<div class="container">
+  <div class="modal fade" id="popUpWindow">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="login_div">
+        <!-- header -->
+        <div class="modal-header">
+          <h3 class="modal-title">Se connecter</h3>
+        </div>
+        <!-- body -->
+
+        <div class="modal-header">
+          <form method="post" action="/api/criminal-record/login/">
+            <div class="form-group">
+              <input type="email" name="email" id= "txtEmail" class="form-control" placeholder="Email"/>
+              <br>
+              <input type="password" name="pwd" id="txtPassword" class="form-control" placeholder="Mot de passe" />
+              <br>
+              <input type="checkbox" onclick="showPwd()" style="margin-right: 10px; margin-bottom: 20px"><span>Afficher le mot de passe</span>
+              <% if(!login) { %>
+                <style>
+                  #loginbtn{
+                    border: 1px solid palevioletred;
+                  }
+                </style>
+                <p style="color: palevioletred;"><%= message %></p>
+              <% } %>
+            </div>
+
+            </div>
+        </div>
+            <!-- footer -->
+            <div class="modal-footer">
+              <button class="btn btn-block" id="btnLogin">Se connecter</button>
+            </div>
+            </div>
+          </form>
+      <!-- success -->
+      <div id="user_div" class="modal-success" style="display: none;">
+        <h3 class="modal-title" style="text-align: center;">Connecté avec succès !!</h3>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL LOGIN ENDS -->
+
+
+<div class="logo">
+
+  <img src="/thanawhite.png" class="imgfull">
+    <img src="/drap.gif" class="drapfull" class="img-fluid">
+  <img src="/thanastrt.png" class="imgmobile">
+  <p class="mob"> A Complete Solution for Criminal Records</p>
+  <form method="post" action="https://www.google.com/">
+    <input type="text" value="20">
+    <input type="submit" value="valider">
+  </form>
+</div>
+
+
+<!-- Footer -->
+<div class="footer">
+  <div class="f1">
+    <p class="linkfooter">
+      <img src="/logoblk.png" width="80px">
+      <br>
+      <br>
+      <a class="footerlink" href="/api/criminal-record/casier/"> Acceuil </a>
+      <br>
+      <a class="footerlink" href="about"> A propos </a>
+      <br>
+      <a class="footerlink" href="contact"> Numéro d’urgence  </a>
+    </p>
+  </div>
+  <div class="f2">
+    <p>
+      Project By:
+      <br>
+      Lionel Kiangebeni
+      <br>
+      Troisième licence (Bac +3)
+      <br>
+      Science Informatique
+      <br>
+      Réseau et télécomunication
+      <br>
+    </p>
+  </div>
+  <br><br><br><br><br><br><br>
+  <hr color="red">
+        <span class="fl">
+            &copy; Lionel Kiangebeni, 2022, Version 1.4 (This website is for representation purpose only)
+        </span>
+</div>
+<!-- End of Footer -->
+
+
+<!-- JS for LoginAuth -->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  const showPwd = () => {
+    console.log("toggle pwd")
+    var pwd = document.getElementById("txtPassword");
+    if (pwd.type === "password") {
+      pwd.type = "text";
+    } else {
+      pwd.type = "password";
+    }
+  }
+</script>
+</body>
+</html>

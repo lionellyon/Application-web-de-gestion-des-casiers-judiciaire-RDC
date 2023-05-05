@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Casier Judiciaire</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/style/style-log.css">
+        <link rel="icon" href="/blacklogo.png" type="image/icon type">
+        <script src="script.js"></script>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/api/criminal-record/"><img src="/logoblk.png" width="60px"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="/api/criminal-record/casier/"> Acceuil </a></li>
+        <li><a href="about"> A propos </a></li>
+        <li><a href="contact"> Numéro d'urgence </a></li>
+<!-- MODAL LOGIN BUTTONS -->
+            <li>
+              <button class="btn" id="loginbtn" data-toggle="modal" data-target="#popUpWindow">
+                <span class="glyphicon glyphicon-log-in" ></span>
+                Se connecter
+              </button>
+              </li>
+            <li>
+              <button class="btn" id="btnLogout" style="display: none;" onclick="logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Se deconnecter
+              </button>
+            </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- MODAL LOGIN -->
+<div class="container">
+  <div class="modal fade" id="popUpWindow">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="login_div">
+        <!-- header -->
+        <div class="modal-header">
+          <h3 class="modal-title">Login</h3>
+        </div>
+        <!-- body -->
+        <div class="modal-header">
+          <form role="form">
+            <div class="form-group">
+              <input type="email" id= "txtEmail" class="form-control" placeholder="Email"/>
+              <br>
+              <input type="password" id="txtPassword" class="form-control" placeholder="Password" />
+              <br>
+              <input type="button" onclick="myFunction()" onmouseover="myFunction()" onmouseout="myFunction()" value="Show Password">
+            </div>
+          </form>
+        </div>
+        <!-- footer -->
+        <div class="modal-footer">
+          <button class="btn btn-block" id="btnLogin" onclick="login()">Log In</button>
+        </div>
+        </div>
+      <!-- success -->
+      <div id="user_div" class="modal-success" style="display: none;">
+        <h3 class="modal-title" style="text-align: center;">Logged In Successfully !!</h3>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL LOGIN ENDS -->
+
+<!-- About Text -->
+<p class = abouttxt>
+Dans ce monde en évolution rapide, gérer un enregistrement manuel des criminels est une tâche ardue. Un système de gestion des casiers judiciaires est un système informatique ou Web qui facilite la gestion des casiers judiciaires, des dossiers officiels qui contribue à accroître l'efficacité de la police. Ce système ou logiciel aidera à rendre tout le fonctionnement sans papier. Il intègre toutes les informations concernant les crimes, les criminels, les fonctionnaires de police et l'enregistrement d'une plainte en ligne dans un seul logiciel. <b>Notre project</b> comprend l'ajout, la modification et la suppression du dossier d'un criminel ainsi que du policier concerné. Notre logiciel a la possibilité d'accéder aux coordonnées des services d'urgence et des principaux responsables de la police et d'enregistrer une plainte en ligne. Le système de gestion du casier judiciaire est dûment protégé par un contrôle d'accès qui ne peut être modifié qu'à l'aide de l'identifiant et du mot de passe. Plus de fonctionnalités pour renforcer la sécurité seront ajoutées au fur et à mesure que nous avancerons. L'officier de police peut rechercher tous les détails sur les antécédents d'un criminel alors qu'un invité ne peut voir que le nom et la photo du criminel. Nous utiliserons la programmation C pour implémenter cela et son accès sera fourni via le site Web et l'application iOS.
+<br><br>
+<b>Les caractéristiques de base de notre projet sont :</b>
+<br>
+Ajout d'un nouveau casier judiciaire/dossier officiel.
+<br>
+Modification des détails de l'enregistrement.
+<br>
+Suppression d'un enregistrement.
+<br>
+Options de recherche.
+<br>
+Déposer une plainte en ligne.
+<br>
+Accéder aux numéros d'urgence et aux coordonnées des fonctionnaires.
+<br><br><br>
+</p>
+<!-- End of Text -->
+
+<!-- Team Member Cards -->
+
+<!-- End of Team Cards -->
+
+<!-- Footer -->
+
+<!-- Footer -->
+<div class="footer">
+  <div class="f1">
+    <p class="linkfooter">
+      <img src="/logoblk.png" width="80px">
+      <br>
+      <br>
+      <a class="footerlink" href="/api/criminal-record/casier/"> Acceuil </a>
+      <br>
+      <a class="footerlink" href="about"> A propos </a>
+      <br>
+      <a class="footerlink" href="contact"> Numéro d’urgence  </a>
+    </p>
+  </div>
+  <div class="f2">
+    <p>
+      Project By:
+      <br>
+      Lionel Kiangebeni
+      <br>
+      Troisième licence (Bac +3)
+      <br>
+      Science Informatique
+      <br>
+      Réseau et télécomunication
+      <br>
+    </p>
+  </div>
+  <br><br><br><br><br><br><br>
+  <hr color="red">
+        <span class="fl">
+            &copy; Lionel Kiangebeni, 2022, Version 1.1 (This website is for representation purpose only)
+        </span>
+</div>
+<!-- End of Footer -->
+
+
+<!-- JS for LoginAuth -->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script src="script.js"></script>
+</body>
+</html>
